@@ -1,0 +1,45 @@
+.banner {
+  color: white;
+  object-fit: contain;
+  height: 450px;
+}
+.contents {
+  margin-left: 25px;
+  padding-top: 140px;
+  height: 190px;
+}
+.bannertitle {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.bannerdesc {
+  width: 45rem;
+  line-height: 1.3;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  max-width: 360px;
+  height: 80px;
+}
+.bannerbutton {
+  cursor: pointer;
+  height: 30px;
+  width: 90px;
+  color: azure;
+  outline: none;
+  padding-right: 10px;
+  background-color: rgba(51, 51, 51, 0.5);
+}
+.bannerbutton:hover {
+  color: black;
+  background-color: rgb(196, 255, 255);
+  transition: all 0.2s;
+}
+.bannerfade {
+  height: 7.5rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(155, 115, 115, 0.61),
+    #111
+  );
+}
