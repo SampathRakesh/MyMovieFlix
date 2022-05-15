@@ -1,29 +1,27 @@
-import "./App.css";
-import Row from "./Row.js";
-import requests from "./requests";
-import Banner from "./Banner.js";
-import Navbar from "./Navbar";
-function App() {
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Newapp from "./Newapp.js";
+import Signup from "./Signup.js";
+import Login from "./Login.js";
+import { UserAuthContextProvider } from "./UserAuthContext.js";
+import ProtectedRoute from "./ProtectedRoute.js";
+const App = () => {
   return (
-    <div className="App">
-      <Navbar />
-      <Banner />
-      <Row
-        title="NetflixOriginals"
-        fetchURL={requests.fetchNetflixOriginals}
-        islarge
-      />
-      <Row title="TrendingNow" fetchURL={requests.fetchTrending} />
-      <Row title="Comedy movies" fetchURL={requests.fetchComedyMovies} />
-      <Row title="Action Movies" fetchURL={requests.fetchActionMovies} />
-      <Row title="LOve Movies" fetchURL={requests.fetchLoveMovies} />
-      <Row title="Horror Movies" fetchURL={requests.fetchHorrorMovies} />
-      <Row
-        title="Documentary Movies"
-        fetchURL={requests.fetchDocumentaryMovies}
-      />
-    </div>
+    <UserAuthContextProvider>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route
+          path="/movie"
+          element={
+            <ProtectedRoute>
+              <Newapp />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </UserAuthContextProvider>
   );
-}
+};
 
 export default App;
